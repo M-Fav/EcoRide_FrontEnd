@@ -1,18 +1,24 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import LoginView from '../components/LoginView.vue'
-import TokenView from '../components/TokenView.vue'  // Assurez-vous que ce fichier existe
+import TokenView from '../components/TokenView.vue' 
+import AccueilView from '../components/AccueilView.vue';
 
 const routes = [
   {
-    path: '/',
+    path: '/login',
     name: 'login',
     component: LoginView
   },
   {
     path: '/token',
-    name: 'token-display',  // Assurez-vous que ce nom de route est utilisé dans this.$router.push
+    name: 'token-display', 
     component: TokenView,
     props: route => ({ token: route.state?.token }) // Utilisez "state" pour récupérer le token
+  },
+  {
+    path: '/',
+    name: 'accueil',
+    component: AccueilView
   }
 ];
 
