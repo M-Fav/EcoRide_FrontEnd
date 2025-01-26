@@ -1,0 +1,97 @@
+/* Style principal */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f6f9;
+  }
+  
+  /* Container du formulaire */
+  .login {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+  }
+  
+  .login h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .login div {
+    margin-bottom: 15px;
+  }
+  
+  .login label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .login input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .login button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .login button:hover {
+    background-color: #0056b3;
+  }
+  
+  .error {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* Media Queries pour rendre le design responsive */
+  
+  /* Écrans de plus de 600px (tablettes et plus) */
+  @media (min-width: 600px) {
+    .login {
+      width: 80%;
+      max-width: 500px; /* Limite la largeur sur les grands écrans */
+    }
+  }
+  
+  /* Écrans de plus de 768px (ordinateurs de bureau) */
+  @media (min-width: 768px) {
+    .login {
+      width: 60%;
+      max-width: 600px;
+    }
+  }
+  
+  /* Mobile (moins de 600px) */
+  @media (max-width: 600px) {
+    .login {
+      padding: 15px;
+      width: 100%;
+      max-width: none;
+    }
+  
+    .login input, .login button {
+      font-size: 14px;
+    }
+  }
+  
