@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <!-- Le logo Vue (optionnel) -->
-    <img alt="Vue logo" src="./assets/images/logo.png">
+    
+    <HeaderView />
     
     <!-- Le composant sera rendu ici en fonction de la route active -->
     <router-view />
@@ -9,16 +9,15 @@
 </template>
 
 <script>
-// Importation de LoginView n'est plus nécessaire
-// import LoginView from './components/LoginView.vue';
-
-export default {
-  name: 'App',
-  // Supprimer la référence au composant LoginView
-  components: {
-    // LoginView // Cette ligne peut être supprimée
+  import HeaderView from './components/HeaderView.vue';
+  export default {
+    name: 'App',
+    components: {
+    HeaderView,  
+    },
   }
-}
+
+  
 </script>
 
 <style>

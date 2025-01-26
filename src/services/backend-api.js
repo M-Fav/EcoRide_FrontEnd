@@ -1,7 +1,13 @@
 import axios from "axios";
 
-const api = axios.create({
-  baseURL: "http://localhost:8080", // Remplacez par l'URL de votre backend
-});
+const API_BASE_URL = "http://localhost:8080";
 
-export default api;
+// Fonction pour l'authentification
+export async function loginUser(credentials) {
+  try {
+    const response = await axios.post(`${API_BASE_URL}/login`, credentials);
+    return response.data;
+  } catch (error) {
+    throw error.response?.data?.message || "Une erreur est survenue.";
+  }
+}

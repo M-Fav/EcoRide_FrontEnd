@@ -35,7 +35,7 @@
   </template>
   
   <script>
-  import axios from "axios";
+  import { loginUser } from "../services/backend-api.js";
   import "../assets/styles/login.css";
   
   export default {
@@ -48,29 +48,24 @@
       };
     },
     methods: {
-        async login() {
-        try {
-            this.error = null;
-            const response = await axios.post("http://localhost:8080/login", {
-            pseudo: this.username,
-            password: this.password,
-            });
+    async login() {
+      try {
+        this.error = null;
+        const credentials = { pseudo: this.username, password: this.password };
+        const data = await loginUser(credentials);
 
-            // Récupérer le token et rediriger vers la page du token
-            this.token = response.data.access_token;
-            console.log("Token récupéré :", this.token);
+        console.log("Token récupéré :", data.access_token);
 
-            // Redirection avec le token en état
-            this.$router.push({ name: "token-display", query: { token: this.token } });
-
-        } catch (err) {
-            console.error("Erreur lors de la connexion :", err);
-            this.error = err.response?.data?.message || "Une erreur est survenue.";
-        }
-        }
-      },
-  };
-  </script>
+        // Redirection avec le token
+        this.$router.push({ name: "token-display", query: { token: data.access_token } });
+      } catch (errorMessage) {
+        console.error("Erreur lors de la connexion :", errorMessage);
+        this.error = errorMessage;
+      }
+    },
+  },
+};
+</script>
   
   <style scoped>
   /* Votre style ici */
